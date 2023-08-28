@@ -1,0 +1,12 @@
+{
+  "name": "ionic-angular-components",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@capacitor/filesystem": "4.1.5",
+    "@types/facebook-js-sdk": "3.3.6"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

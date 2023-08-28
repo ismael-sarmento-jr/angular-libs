@@ -2,11 +2,23 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "angular-ionic-base/*": [
-        "projects/angular-ionic-base/*"
+      "ionic-angular-components/*": [
+        "projects/ionic-angular-components/*"
       ],
-      "angular-ionic-base": [
-        "projects/angular-ionic-base"
+      "ionic-angular-components": [
+        "projects/ionic-angular-components"
+      ],
+      "ionic-angular-storage/*": [
+        "projects/ionic-angular-storage/*"
+      ],
+      "ionic-angular-storage": [
+        "projects/ionic-angular-storage"
+      ],
+      "angular-core/*": [
+        "projects/angular-core/*"
+      ],
+      "angular-core": [
+        "projects/angular-core"
       ]
     },
     "baseUrl": "./",

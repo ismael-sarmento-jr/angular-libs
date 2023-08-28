@@ -7,12 +7,10 @@
 /node_modules
 
 #PROJECTS MISC
-/projects/components/node_modules
-/projects/components/package-lock.json
-/projects/storage/node_modules
-/projects/storage/package-lock.json
-/projects/api/node_modules
-/projects/api/package-lock.json
+/projects/ionic-angular-components/node_modules
+/projects/ionic-angular-components/package-lock.json
+/projects/ionic-angular-storage/node_modules
+/projects/ionic-angular-storage/package-lock.json
 
 #IONIC
 /.ionic
