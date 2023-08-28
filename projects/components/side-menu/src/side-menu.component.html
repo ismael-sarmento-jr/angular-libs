@@ -1,0 +1,71 @@
+<ion-menu contentId="main-content" type="overlay" #sideMenu>
+  <ion-content>
+    <ion-item color="primary" id="side-menu-header" lines="none">
+      <ion-grid *ngIf="!user || !user.nickname">
+        <ion-row class="ion-justify-content-center">
+          <ion-img src="../assets/img/logo.png"></ion-img>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngIf="user && user.nickname" id="user-info">
+        <ion-row class="ion-justify-content-center">
+          <ion-avatar class="avatar">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ion-label>User One</ion-label>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ion-label>@userone</ion-label>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    
+    <ion-list id="options-list">  
+      <!-- General Options -->
+      <ion-menu-toggle auto-hide="false" *ngFor="let option of generalOptions">
+        <ion-item *ngIf="displayOption(option.display)" routerDirection="root" [routerLink]="option.url" [lines]="option.lines"
+          detail="false" routerLinkActive="selected">
+          <ion-icon slot="start" [name]="option.icon"></ion-icon>
+          <ion-label>{{ option.title }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <!-- Grouped Resource options -->
+      <div id="grouped-list" *ngFor="let option of groupedOptions">
+        <ion-item [lines]="option.lines" detail="false" (click)="option.open = !option.open">
+          <ion-icon slot="start" [name]="option.icon"></ion-icon>
+          <ion-label>{{option.title}}</ion-label>
+          <ion-icon slot="end" [name]="option.open ? 'caret-up-outline' : 'caret-down-outline'" color="medium" size="small"></ion-icon>
+        </ion-item>
+        <ion-list id="sub-options-list" *ngIf="option.suboptions?.length > 0 && option.open">
+          <ion-menu-toggle *ngFor="let suboption of option.suboptions">
+            <ion-item *ngIf="displayOption(suboption.display)" [routerLink]="suboption.url" 
+            lines="none" color="light">
+              <ion-label>{{ suboption.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </div>
+    
+      <!-- User Options -->
+      <ion-menu-toggle auto-hide="false" *ngFor="let option of userOptions">
+        <ion-item *ngIf="displayOption(option.display)" [lines]="option.lines" [routerLink]="option.url">
+          <ion-icon slot="start" [name]="option.icon"></ion-icon>
+          <ion-label>{{ option.title }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    
+      <!-- LogIn/Out Options -->
+      <ion-item *ngIf="user && user.nickname" lines="none" (click)="authService.initLogout(); sideMenu.close();">
+        <ion-icon slot="start" ios="exit" md="exit"></ion-icon>
+        <ion-label>Sair</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!user || !user.nickname" lines="none" (click)="authService.initLogin(); sideMenu.close();">
+        <ion-icon slot="start" ios="person" md="person"></ion-icon>
+        <ion-label>Entrar</ion-label>
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-menu>

@@ -1,0 +1,41 @@
+    <div class="card-wrapper" [ngStyle]="{'width': fitWidth ? '100%' :'max-content'}">
+        <div class="card-container">
+            <div class="card-inner" [class]="theme">
+                <ion-item-group class="card-main">
+                    <ion-item lines="none" class="card-title" [ngClass]="'ion-text-'+(titlePlacement === 'end'? 'right' : 'left')">
+                        <span *ngIf="title" [ngClass]="'border-'+titlePlacement"
+                            [slot]="titlePlacement"
+                            role="h1"
+                            title="{{title}}">
+                            {{title}}
+                        </span>
+                        <ion-icon *ngIf="closeable"
+                            slot="end"
+                            name="close"
+                            (click)="closeCard()">
+                        </ion-icon>
+                    </ion-item >
+
+                    <ion-item lines="none" class="card-subtitle" [ngClass]="'ion-text-'+(titlePlacement === 'end'? 'right' : 'left')">
+                      <span *ngIf="subtitle"
+                        slot="start">
+                        <h4>{{subtitle}}</h4>
+                      </span>
+                    </ion-item>
+
+                    <ion-item-group class="card-content">
+                      <ion-item lines="none" id="loading-indicator" *ngIf="loading">
+                        <ion-grid>
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="2">
+                              <ion-spinner></ion-spinner>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>
+                      </ion-item>
+                      <ng-content></ng-content>
+                    </ion-item-group>
+                </ion-item-group>
+            </div>
+        </div>
+    </div>

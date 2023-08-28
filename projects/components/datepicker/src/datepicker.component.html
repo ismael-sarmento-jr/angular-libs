@@ -1,0 +1,10 @@
+<ng-template #ionDatetime>
+  <app-card [closeable]="true" (cardClosed)="modalService.closeModal()">
+    <ion-datetime
+      presentation="day-month-year"
+      [min]="minDate"
+      [max]="maxDate"
+      (ionChange)="modalService.closeModal($event)">
+    </ion-datetime>
+  </app-card>
+</ng-template>

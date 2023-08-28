@@ -1,0 +1,27 @@
+@use "sass:math";
+
+#watch {
+  color: var(--ion-color-primary-contrast);
+}
+.watch-edge {
+  border: solid var(--ion-color-primary-contrast) 1px;
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+}
+.watch-content {
+  height: 100%;
+}
+.watch-inner {
+  width: auto;
+  height: 100%;
+}
+/**
+* Conditionally apply styles based upon child count
+*/
+@for $i from 1 through 4 {
+  .watch-inner > ion-row:first-child:nth-last-child(#{$i}),
+  .watch-inner > ion-row:first-child:nth-last-child(#{$i}) ~ ion-row {
+    height: math.div(100%, $i);
+  }
+}

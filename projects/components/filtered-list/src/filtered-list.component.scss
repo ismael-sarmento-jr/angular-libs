@@ -1,0 +1,42 @@
+.item-inner {
+    background: var(--ion-color-primary-contrast);
+}
+.values-list {
+    overflow: scroll;
+}
+.value-note {
+    color: var(--color-step-350, rgba(0, 0, 0, 0.5));
+}
+ion-input {
+    --placeholder-opacity: 0.4;
+}
+
+/*
+* ANIMATIONS
+*/
+.item-added {
+    overflow:hidden;
+    height:0;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+.item-added ion-label {
+    margin: 0px;
+    transition: margin 1s ease;
+}
+.item-added.displayed {
+    height:auto;
+    opacity: 1;
+}
+.item-added.displayed ion-label{
+    margin: 10px 0px;
+}
+.item-removed {
+    overflow:hidden;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.item-removed ion-label {
+    margin: 0px;
+    transition: margin .5s ease;
+}

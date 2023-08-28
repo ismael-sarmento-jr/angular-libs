@@ -1,0 +1,96 @@
+/**
+* THEMES
+*/
+.blue-corners-left {
+  background: url(/assets/img/bg/blue_corners_left.png);
+}
+.blue-corners-right {
+    background: url(/assets/img/bg/blue_corners_right.png);
+}
+.dots-dark {
+    background: url(/assets/img/bg/dots_dark.png);
+}
+.dots-light {
+    background: url(/assets/img/bg/dots_light.png);
+}
+.field-light {
+    background: url(/assets/img/bg/field_light.png);
+}
+.field-light-portrait {
+  background: url(/assets/img/bg/field_light_portrait.png);
+}
+.flares-dark {
+    background: url(/assets/img/bg/flares_dark.png);
+}
+.footstep-light {
+    background: url(/assets/img/bg/footstep_light.png);
+}
+.footstep-dark {
+    background: url(/assets/img/bg/footstep_dark.png);
+}
+.wall-dark {
+    background: url(/assets/img/bg/wall_dark.png);
+}
+.melt-light {
+  background: url(/assets/img/bg/melt_light.png);
+}
+.cup-repeat {
+  background: url(/assets/img/bg/cup_repeat.png);
+}
+/**
+* GRID
+*/
+.card-wrapper {
+    padding: var(--default-spacing);
+    height: 100%;
+}
+.card-container {
+    height: 100%;
+}
+.card-inner {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--ion-background-color, #fff);
+    border: 1px  solid var(--ion-item-border-color, var(--ion-border-color, var(--color-step-850, rgba(0, 0, 0, 0.13))));
+    border-radius: var(--ion-border-radius);
+    box-shadow: rgb(0 0 0 / 20%) 0 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px;
+    display: block;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.card-main {
+    height: 100%;
+    width: 100%;
+}
+.card-title {
+    text-align: left;
+    margin-bottom: 10px;
+}
+.card-title>span {
+    padding: 5px 10px;
+}
+.card-subtitle {
+  text-align: left;
+  margin-bottom: 10px;
+  color: var(--color-step-250);
+}
+.card-addon-left {
+    float: left;
+    width: 25%;
+}
+.card-addon-right {
+    float: left;
+    width: 25%;
+}
+.card-content {
+    margin-top: var(--default-spacing-negative);
+    /*height: 100%;*/
+
+    #loading-indicator {
+        margin: 30px 0;
+        text-align: center;
+    }
+} 

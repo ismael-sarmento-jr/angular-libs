@@ -1,0 +1,5 @@
+<ion-list lines="none">
+  <ion-item *ngFor="let action of actions" (click)="actionSelected(action.handler)">
+    <ion-label>{{action.title}}</ion-label>
+  </ion-item>
+</ion-list>

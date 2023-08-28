@@ -1,33 +1,59 @@
-# Gradle files
-.gradle/
-build/
+# Compiled output
+/dist
+/tmp
+/out-tsc
 
-# Local configuration file (sdk path, etc)
-local.properties
+# NPM
+/node_modules
 
-# Log/OS Files
+#PROJECTS MISC
+/projects/components/node_modules
+/projects/components/package-lock.json
+/projects/storage/node_modules
+/projects/storage/package-lock.json
+/projects/api/node_modules
+/projects/api/package-lock.json
+
+#IONIC
+/.ionic
+/android
+/ios
+/www
+/plugins
+/platforms
+/dist
+#CAP GEN ASSETS
+/icons
+/src/manifest.webmanifest
+
+#ANGULAR
+/.angular
+/.sass-cache
+/.sourcemaps
+/.versions
+/coverage
+/node_modules
+package-lock.json
+
+# Visual Studio Code
+/.vscode
+.history/
+*.vsix
+.editorconfig
+
+# IDEA and simple editors
+.idea/*
+!.idea/runConfigurations/
+!.idea/codeStyleSettings.xml
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+xcuserdata/
+*.sublime-workspace
+
+#LOG
 *.log
-
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
-
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
-
-# Keystore files
-*.jks
-*.keystore
-
-# Google Services (e.g. APIs or Firebase)
-google-services.json
-
-# Android Profiling
-*.hprof
+log.txt
+npm-debug.log*

@@ -1,0 +1,12 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="fxContainer">
+    <div class="fxInner">
+        <button mat-raised-button title="Entrar com Facebook" (click)="authService.initLogin('facebook')">
+            <i svgIcon="facebook">facebook</i>
+            Entrar com Facebook
+        </button>
+        <button mat-raised-button title="Entrar com Google" (click)="authService.initLogin('google')">
+            <i svgIcon="google"></i>
+            Entrar com Google
+        </button>
+    </div>
+</div>

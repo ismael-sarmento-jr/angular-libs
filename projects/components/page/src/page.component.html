@@ -1,0 +1,31 @@
+<ion-header id="page-header" [translucent]="true">
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button *ngIf="showSideMenu"></ion-menu-button>
+          <ion-button *ngIf="canGoBack" color="primary"
+            (click)="goBack()"
+            title="Voltar">
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{title}}</ion-title>
+      <ion-buttons slot="end" *ngIf="headerButtons && headerButtons.length > 0">
+        <ion-button color="primary" *ngFor="let button of headerButtons"
+          (click)="button.handler(button.data)"
+          [title]="button.title">
+          <ion-icon slot="icon-only" [name]="button.icon"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons *ngIf="headerMenuActions && headerMenuActions.length > 0" slot="end">
+        <ion-button color="primary"
+          (click)="presentPopoverMenu($event)"
+          title="Opções">
+          <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" #content>
+  <ng-content></ng-content>
+</ion-content>

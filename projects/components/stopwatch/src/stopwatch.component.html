@@ -1,0 +1,21 @@
+<ion-item id="watch" lines="none" *ngIf="stopwatch">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col size="auto" class="ion-text-center ion-text-bold">
+        <div class="watch-edge">
+            <ion-row class="watch-content ion-justify-content-center ion-align-items-center">
+              <ion-col class="watch-inner">
+                <ion-row class="ion-justify-content-center ion-align-items-end">
+                    <ion-text class="font-lg">{{stopwatch.watchTime ? dateTimeService.secondsToDefaultWatchFormat(stopwatch.watchTime) : '00:00'}}</ion-text>
+                </ion-row>
+                <ion-row class="ion-justify-content-center ion-align-items-center">
+                  <ion-icon *ngIf="!stopwatch.startTime" name="play" (click)="startWatch()"></ion-icon>
+                  <ion-icon *ngIf="stopwatch.startTime" name="stop" (click)="stopWatch()"></ion-icon>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>

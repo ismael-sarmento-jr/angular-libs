@@ -1,0 +1,35 @@
+<ion-item lines="none" id="loading-indicator" *ngIf="loading">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="2">
+        <ion-spinner></ion-spinner>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+<ion-item-group>
+  <ion-item lines="none" *ngIf="showOptionsTray">
+    <ion-button size="default" class="ion-button-no-border" color="light" slot="end"
+        (click)="cancel.emit(listCopy)">Cancelar</ion-button>
+    <ion-button size="default" class="ion-button-no-border" color="light" slot="end"
+        (click)="confirm.emit(listCopy)">Confirmar</ion-button>
+  </ion-item>
+  <ion-item-group class="reorder-group" [style.height]="reorderGroupHeight + 'px'">
+    <ion-reorder-group
+      disabled="false"
+      (ionItemReorder)="handleReorderEvent($event)"
+      *ngIf="listCopy?.length > 0">
+      <ng-container *ngFor="let item of listCopy; let i = index;">
+        <ion-item [id]="item[idProperty]" lines="full" class="orderable-item">
+          <ion-label>{{item[descriptionProperty]}}</ion-label>
+          <ion-reorder class="ion-reorder-icon" slot="start">
+            <ion-icon name="reorder-two"></ion-icon>
+          </ion-reorder>
+        </ion-item>
+      </ng-container>
+    </ion-reorder-group>
+  </ion-item-group>
+  <ion-item lines="full" *ngIf="!loading && (!listCopy || listCopy.length === 0)">
+    <ion-label>Nenhum jogador adicionado ao dia de jogo</ion-label>
+  </ion-item>
+</ion-item-group>
