@@ -3,23 +3,34 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ionic-angular-components": {
+    "@ionic-angular-ext/components": {
       "projectType": "library",
-      "root": "projects/ionic-angular-components",
-      "sourceRoot": "projects/ionic-angular-components/src",
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
+        }
+      },
+      "root": "projects/ionic-angular-ext/components",
+      "sourceRoot": "projects/ionic-angular-ext/components/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ionic-angular-components/ng-package.json"
+            "project": "projects/ionic-angular-ext/components/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ionic-angular-components/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ionic-angular-ext/components/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ionic-angular-components/tsconfig.lib.json"
+              "tsConfig": "projects/ionic-angular-ext/components/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,7 +38,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/ionic-angular-components/tsconfig.spec.json",
+            "tsConfig": "projects/ionic-angular-ext/components/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -36,56 +47,34 @@
         }
       }
     },
-    "ionic-angular-storage": {
+    "@ionic-angular-ext/storage": {
       "projectType": "library",
-      "root": "projects/ionic-angular-storage",
-      "sourceRoot": "projects/ionic-angular-storage/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ionic-angular-storage/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ionic-angular-storage/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ionic-angular-storage/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": true
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ionic-angular-storage/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
-      }
-    },
-    "angular-core": {
-      "projectType": "library",
-      "root": "projects/angular-core",
-      "sourceRoot": "projects/angular-core/src",
+      },
+      "root": "projects/ionic-angular-ext/storage",
+      "sourceRoot": "projects/ionic-angular-ext/storage/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/angular-core/ng-package.json"
+            "project": "projects/ionic-angular-ext/storage/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/angular-core/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ionic-angular-ext/storage/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/angular-core/tsconfig.lib.json"
+              "tsConfig": "projects/ionic-angular-ext/storage/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -93,7 +82,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/angular-core/tsconfig.spec.json",
+            "tsConfig": "projects/ionic-angular-ext/storage/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
