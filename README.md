@@ -1,27 +1,43 @@
-# Libs
+# Main Projects
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
+[Ionic Angular Extensions](./projects/ionic-angular-ext)
 
-## Development server
+# Config
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This repository has a base project called angular-libs that contains diverse lib projects inside its folder `./projects`
 
-## Code scaffolding
+```
+// angular-Libs was created with following commands
+mkdir angular-libs
+ng new angular-libs --create-application=false
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+// To generate lib projects:
+ng generate library my-new-lib
 
-## Build
+// add dependencies to 'peerDependencies' and 'dependencies' my-new-lib entries package.json sections (or just to peerDependencies if lib consumer has to install them) then issue install:
+npm install <dep> --save-dev
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+// to build the project and watch for subentries change, so it only rebuilds the changed subentry*, inside the entry
+ng build --watch
 
-## Running unit tests
+// to create a local symbolic link in npm so we don't need to publish to a repo, inside './dist/my-new-lib':
+npm link
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+// to use the link, inside the lib consumer project (the consumer link might get erased on lib update/watch, so just issue the command whenever needed):
+npm link my-consumer-proj
+```
+_(*) Npm libs don't support deep link; additional information on creating subentries for the lib: [creating-secondary-entry-points-for-your-angular-library](https://medium.com/tunaiku-tech/creating-secondary-entry-points-for-your-angular-library-1d5c0e95600a)_
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+If an entry in a project is too big, edit its package.json scripts to use adequate memory to its size:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "node --max_old_space_size=5048 ./node_modules/@angular/cli/bin/ng build",
+    "build-prod": "node --max_old_space_size=5048 ./node_modules/@angular/cli/bin/ng build --prod",
+    "watch": "node --max_old_space_size=5048 ./node_modules/@angular/cli/bin/ng build --watch --configuration development",
+    "test": "ng test"
+  }
+```
